@@ -161,11 +161,11 @@ else:
 # EMAIL CONFIGURATION (for contact form)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'dev.ash.py@gmail.com'
-EMAIL_HOST_PASSWORD = 'Dev.2023'
+EMAIL_HOST_USER = 'youremail@gmail.com'
+EMAIL_HOST_PASSWORD = 'yourpassword'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = 'hfqnovljglydjjej'
+EMAIL_HOST_PASSWORD = 'hfqjknkonjknovjknkjljglydkbkjjej'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
