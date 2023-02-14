@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Categories{% endblock title %}
+
+{% block content %}
+
+<div class='bg-gray-800 text-white p-3 md:px-10 lg:px-20 xl:px-40 2xl:px-72'>
+    <p style="font-family: Poppins-Bold" class='text-4xl font-extrabold py-5 text-center md:text-start'>Categories</p>
+    <div class="text-xl p-5 grid grid-cols-1 place-items-center items-center md:grid-cols-3 gap-x-8">
+        {% for category in all_categories %}
+            <div onclick="location.href='{% url 'category' category.category %}';" style="box-shadow:0 5px 30px 0 rgba(0,0,0,.05);" class="hover:scale-105 hover:transform transition duration-300 cursor-pointer bg-gray-900 rounded-lg h-40 w-full my-4 text-center p-5 grid place-items-center">
+                <div>
+                <p class='text-4xl my-2'><i class="bi bi-tags text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-blue-500"></i></p>
+                <p class='text-base'>{{ category.category }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

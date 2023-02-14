@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}{{blog.title}}{% endblock title %}
+
+{% block content %}
+<div class='bg-gray-800 text-white p-8 pt-12 flex flex-col md:px-20 lg:px-36 xl:px-60 2xl:px-80'>
+    <span class='text-center text-3xl md:text-4xl font-bold text-cyan-200 hover:text-cyan-300 transition duration-300'><a href='{{blog.slug}}'>{{blog.title}}</a></span>
+    <span class='text-center mt-2 text-gray-400'>by <a href='/about'><i class="bi bi-person"></i> <span class='group'><span class='group-hover:text-cyan-200 bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>Ashish</span></span><a> <i class="bi bi-dot"></i> <span><i class="bi bi-calendar4-event"></i> {{blog.time}}</span> <i class="bi bi-dot"></i> <i class="bi bi-tag"></i> <a href='/category/{{blog.category}}'><span class='group'><span class='group-hover:text-cyan-200 bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>{{blog.category}}</span></span></span></a>
+    <img class='rounded-lg my-6 flex justify-center' src="{{blog.thumbnail_url}}">
+    <p class=''>{{blog.content|safe}} </p>
+</div>
+<style> 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: revert;
+        font-weight: revert;
+    }
+  
+    {% comment %} ol,
+    ul {
+        list-style: revert;
+        margin: revert;
+        padding: revert;
+    } {% endcomment %}
+    p a {
+        color: #67e8f9;
+        background: 
+          linear-gradient(to right, rgba(103,232,249, 1), rgba(59, 130, 246, 1)),
+          linear-gradient(to right, rgba(34,211,238, 1), rgba(59, 130, 246, 1), rgba(29, 78, 216, 1));
+        background-size: 100% 0.1em, 0 0.1em;
+        background-position: 100% 100%, 0 100%;
+        background-repeat: no-repeat;
+        transition: background-size 400ms;
+    }
+      
+    p a:hover,
+    p a:focus {
+        background-size: 0 0.1em, 100% 0.1em;
+    }
+    p img {
+        border-radius: 8px;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <div class='hero-section bg-gray-800 text-white text-center flex flex-col justify-center items-center h-[550px] md:h-[580px] lg:h-[600px]'>
+        <span class='font-mono my-2'><span class='wave'>&#128075;</span> Hi, I am Ashish</span>
+        <span style="font-family: Poppins-Bold" class='z-40 text-3xl font-extrabold md:text-4xl lg:text-5xl px-[20px] md:px-[140px] lg:px-[170px] xl:px-[200px] 2xl:px-[360px]'>
+            I'm a <span class='bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400 text-transparent'>Full Stack</span> developer. This is my portolio & Blog.
+        </span>
+        {% comment %} <div class='absolute -ml-64 -mt-80 h-60 w-60 bg-gradient-to-r from-cyan-300 to-blue-400 rounded-full blur-2xl opacity-10 md:opacity-10 md:-ml-[800px] md:-mt-[200px] md:h-[400px] md:w-[400px] lg:-ml-[1000px] lg:-mt-[200px] xl:-ml-[1400px] xl:-mt-[500px]'></div>
+        <div class='absolute -mr-20 mt-20 h-60 w-60 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-2xl opacity-20 md:-mr-60 md:h-72 md:w-72 lg:-mr-64 lg:h-96 lg:w-96 lg:opacity-10'></div> {% endcomment %}
+        {% comment %} <span class='text-sm text-center pt-2 pb-2 p-6'>I am a UI/UX designer, graphic designer, and web developer, with a passion for crafting visually appealing and user-friendly digital experiences. With my unique combination of skills, I strive to create digital products that are both beautiful and easy to use.</span> {% endcomment %}
+        <div class='updn hero-img my-4'>
+            <img src="https://cdn.jsdelivr.net/gh/hostmind/host/static/h.png" class='h-auto w-52 md:w-56 lg:w-60 xl:w-64'>
+            <div class='updn z-50 absolute flex justify-center items-center text-2xl bg-cyan-50 text-blue-700 rounded-full shadow-2xl -mt-40 xl:-mt-52 w-10 h-10'>
+                <i class="fa-brands fa-python"></i>
+            </div>
+            <div class='updn z-50 absolute flex justify-center items-center text-2xl bg-cyan-50 text-blue-700 rounded-full shadow-2xl -mt-20 ml-44 md:ml-52 md:-mt-24 xl:ml-60 xl:-mt-28 w-10 h-10'>
+                <i class="fa-brands fa-html5"></i>
+            </div>
+            <div class='updn z-50 absolute flex justify-center items-center text-2xl bg-cyan-50 text-blue-700 rounded-full shadow-2xl -mt-16 w-10 h-10'>
+                <i class="fa-brands fa-css3"></i>
+            </div>
+            <div class='updn z-50 absolute flex justify-center items-center text-2xl bg-cyan-50 text-blue-700 rounded-full shadow-2xl -mt-6 ml-20 md:-mt-6 md:ml-28 w-10 h-10'>
+                <i class="fa-brands fa-square-js"></i>
+            </div>
+        </div>
+        {% comment %} <span class='text-sm text-center pt-2 pb-2 p-6'>I am a UI/UX designer, graphic designer, and web developer, with a passion for crafting visually appealing and user-friendly digital experiences. With my unique combination of skills, I strive to create digital products that are both beautiful and easy to use.</span>{% endcomment %}
+        <div class='hero-btn my-3 md:mt-2 font-bold text-sm md:text-[16px] md:leading-6'>
+            <ul class='flex flex-row gap-4 md:space-x-2'>
+                <a href='https://cdn.jsdelivr.net/gh/hostmind/host/static/Ashish-Resume.pdf' download><div class='relative group'>
+                    <div class='bg-gradient-to-r from-cyan-300 to-blue-600 px-6 py-2 text-white rounded-md -inset-0.5 absolute blur-sm opacity-75 group-hover:-inset-1 transition group-hover:duration-400 group-hover:opacity-90 duration-1000'></div>
+                    <button class='relative bg-gray-800 px-7 py-2 text-white rounded-md group-hover:text-gray-50 transition duration-200'><i class="bi bi-download font-extrabold"></i> Download CV</button>
+                </div></a>
+                <a href='/about'><div class='relative group'>
+                    <div class='bg-gradient-to-r from-cyan-300 to-blue-600 px-6 py-2 text-white rounded-md -inset-0.5 absolute blur-sm opacity-75 group-hover:-inset-1 transition group-hover:duration-400 group-hover:opacity-90 duration-1000'></div>
+                    <button class='relative bg-gray-800 px-7 py-2 text-white rounded-md group-hover:text-gray-50 transition duration-200'><i class="bi bi-person"></i> About me</button>
+                </div></a>
+                {% comment %} <a class='dl-cv bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out' href=''><i class="bi bi-download font-extrabold"></i> Download CV</a>
+                <a class='dl-cv bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out' href=''><i class="bi bi-chat-square font-extrabold"></i> Contact</a> {% endcomment %}
+            </ul>
+        </div>
+        {% comment %} <div class='hero-socials text-xl bg-slate-600 rounded-full p-1 px-28'>
+            <ul class='flex flex-row gap-2'>
+                <li><a href='/' class='hover:text-blue-100'><i class="bi bi-youtube"></i></a></li>
+                <li><a href='/' class='hover:text-blue-100'><i class="bi bi-discord"></i></a></li>
+                <li><a href='/' class='hover:text-blue-100'><i class="bi bi-linkedin"></i></a></li>
+            </ul>
+        </div> {% endcomment %}
+    </div>
+    {% comment %} <div class='bg-slate-800 text-white p-5'>
+        <span style="font-family: Poppins-Bold" class='text-2xl font-extrabold'>Checkout my latest posts</span>
+    </div> {% endcomment %}
+
+    <div class='blog-section bg-gray-900 p-4 text-white'>
+        <span style="font-family: Poppins-Bold" class='grid items-center px-2 text-start md:text-start md:pl-36 text-2xl md:text-3xl lg:text-4xl my-6 md:my-10'>Checkout my latest posts</span>
+        <div class='blogs my-5 grid justify-center md:flex md:space-x-6'>
+            {% for blog in random_blogs|slice:3 %}
+                <div style="box-shadow:0 5px 30px 0 rgba(0,0,0,.05);" class='hover:scale-105 hover:transform bg-gray-800 p-5 rounded-lg max-w-sm h-auto shadow-2xl transition-all duration-300'>
+                    <a href='/blogpost/{{blog.slug}}'><img class='rounded-lg mb-4' src="{{blog.thumbnail_url}}"></a>
+                    <a class='text-blue-100 hover:text-blue-300 transition duration-300' href='/blogpost/{{blog.slug}}'><span class='text-xl font-extrabold'>{{blog.title|slice:80}}</span></a><br>
+                    <p class='my-3'>{{blog.meta|slice:180|safe}}</p>
+                    <p class='mt-2 mb-4 text-gray-400'>by  <i class="bi bi-person"></i>  <a href='/about' class='group transition-all duration-500 ease-out'><span class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out group-hover:text-cyan-200'>Ashish</span></a> <i class="bi bi-dot"></i> <span><i class="bi bi-calendar4-event"></i> {{blog.time}}</span> <i class="bi bi-dot"></i><i class="bi bi-tag"></i> <a href='/category/{{blog.category}}' class='group transition-all duration-500 ease-out'><span class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out group-hover:text-cyan-200'>{{blog.category}}</span></a></p>
+                    {% comment %} <a class='text-sm bg-gray-700 py-1 px-3 rounded-full' href='/category/{{blog.category}}'><i class="bi bi-tag"></i> {{blog.category}}</a><br><br> {% endcomment %}
+                    <a href='/blogpost/{{blog.slug}}'><button class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3'>Read more <i class="bi bi-arrow-right font-extrabold"></i></button></a>
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+        <div class='flex justify-center'>
+            <a href='/blog' class=''><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-blue-600 transition delay-75 ease-in-out my-3'>Load more <i class="bi bi-arrow-clockwise font-extrabold"></i></button></a>
+        </div>
+    </div>
+          {% comment %} <div class="grid grid-cols-1 md:grid-cols-2 md:-gap-7">
+            <div class='flex flex-1 md:ml-36'>
+                <img class='rounded-lg mb-4 max-w-sm object-cover overflow-hidden h-auto' src="{% static 'images/post2.jpg' %}">
+            </div>
+            <div class='project-desc md:ml-10 lg:ml-5 xl:-ml-36 2xl-ml-40'>
+                <span class='text-xl font-bold'>Project 1</span><br>
+                <p class='my-3 lg:pr-60 text-md'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullam</p>
+            </div>
+        </div>           {% endcomment %}
+    </div>
+
+{% endblock %}

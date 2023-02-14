@@ -1,0 +1,238 @@
+{% load tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hostmind/host@latest/static/index.css">
+    <title>{% block title %}{% endblock title %} - ashish</title>
+    {% tailwind_css %}
+</head>
+<body>
+    {% comment %} <div class="z-50 fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+	id="my-modal"></div> {% endcomment %}
+    <nav class="nav bg-gray-900 text-white flex justify-between items-center p-3 px-8 md:px-20">
+        <a href="/" class="text-lg font-mono">ashish</a>
+        <div class='flex space-x-4 text-xl'>
+            <i class="searchBtn mt-1 bi bi-search text-sm cursor-pointer md:hidden"></i>
+            <i class="nav-btn bi bi-list cursor-pointer md:hidden"></i>
+        </div>
+        <div class="bg-gray-900 hidden items-center md:block">
+            <a href="/" class="p-2 px-3 my-1 text-white rounded-[8px] hover:bg-gray-800">Home</a>
+            <a href="/about" class="p-2 px-3 my-1 text-white rounded-[8px] hover:bg-gray-800">About</a>
+            <a href="/contact" class="p-2 px-3 my-1 text-white rounded-[8px] hover:bg-gray-800">Contact</a>
+            <a href="/blog" class="p-2 px-3 my-1 text-white rounded-[8px] hover:bg-gray-800">Blog</a>
+            <a href="/projects" class="p-2 px-3 my-1 text-white rounded-[8px] hover:bg-gray-800">Projects</a>
+            <i class="searchBtn1 p-2 px-3 my-1 text-white rounded-[8px] hover:bg-gray-800 mt-1 bi bi-search text-sm cursor-pointer"></i>
+          </div>
+    </nav>
+
+    <div class="mob-nav bg-gray-900 hidden flex-col items-center w-full h-64 md:hidden">
+        <a href="/" class="p-2 px-36 my-1 text-white rounded-[8px] hover:bg-gray-800">Home</a>
+        <a href="/about" class="p-2 px-36 my-1 text-white rounded-[8px] hover:bg-gray-800">About</a>
+        <a href="/contact" class="p-2 px-36 my-1 text-white rounded-[8px] hover:bg-gray-800">Contact</a>
+        <a href="/blog" class="p-2 px-36 my-1 text-white rounded-[8px] hover:bg-gray-800 ">Blog</a>
+        <a href="/projects" class="p-2 px-36 my-1 text-white rounded-[8px] hover:bg-gray-800 ">Projects</a>
+      </div>
+
+      {% block content %}{% endblock %}
+      
+    <footer class='bg-gray-900 text-white p-8 pb-2 grid md:grid-cols-3 md:gap-10 lg:gap-20 xl:gap-30 2xl:gap-40 md:px-40'>
+        <div class='blog-name'>
+            <p class='text-xl font-bold'>ashish<p>
+            <p class='my-3 text-justify'>Explore my developer portfolio and blog to empower your development skills and create something amazing together.</p>
+        </div>
+        <div class='pages'>
+            <p class='text-xl font-bold'>Pages<p>
+            <ul class='my-3'>
+                <li><a href='/'><i class="bi bi-arrow-right-short"></i> Privacy Policy</a></li>
+                <li><a href='/'<i class="bi bi-arrow-right-short"></i> Disclaimer</a></li>
+            </ul>
+        </div>
+        <div class='socials'>
+            <p class='text-xl font-bold'>Follow me<p>
+            <ul class='my-3 flex text-xl'>
+                <li><a href='/' class='hover:text-blue-100'><i class="bi bi-github"></i></a></li>
+                <li class='px-2'><a href='/' class='hover:text-blue-100'><i class="bi bi-linkedin"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    <div class='bg-slate-800 text-white text-justify flex justify-center items-center'>
+        <p class='p-2'>Copyright &copy;<script>document.write(new Date().getFullYear())</script> <span class="text-blue-300 text-justify"><a href="/" target="_blank">ashish</a></span> All Rights Reserved</p>
+    </div>
+
+    <div class="searchModal text-white z-50 fixed bottom-0 inset-x-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center">
+        <div class="fixed inset-0 transition-opacity">
+          <div class="absolute inset-0 bg-gray-800 opacity-75"></div>
+        </div>
+        <div class='modal animate-reveal flex items-center justify-center h-screen'>
+            <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-sm sm:w-full">
+                <form class="px-10 py-10">
+                    <div class="text-xl text-center font-extrabold mb-4">Search</div>
+      
+                    <!-- Search Input -->
+                    <div class="mb-4 flex space-x-2">
+                        <input type="text" class="searchInput w-full bg-gray-800 border border-slate-700 rounded-lg py-2 px-4 outline outline-transparent" placeholder="Enter your search query...">
+                        <a type="submit" class="searchSubmitBtn bg-slate-700 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg" href=""><i class="bi bi-search"></i></a>
+                    </div>
+                </form>
+                <!-- Close Button -->
+                <button class="searchCloseBtn m-2 absolute top-0 right-0 font-medium transition-colors p-4 focus:outline-none" aria-label="Close"><i class="bi bi-x text-xl"></i></button>
+    
+                <div class='mx-3'>
+                <div class='flex md:flex-grow-2 justify-start space-x-3 text-sm md:text-base m-4 -mt-10 mb-8'>
+                  <a href='/category/Python' class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Python</button></a>
+                  <a href='/category/JavaScript' class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>JavaScript</button></a>
+                  <a href='/category/Design'  class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Design</button></a>
+                </div>
+    
+                <div class='flex md:flex-grow-2 justify-start space-x-3 text-sm md:text-base m-4 -mt-10'>
+                  <a href='/category/Web Design' class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Web Design</button></a>
+                  <a href='/category/Frameworks' class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Frameworks</button></a>
+                </div>
+    
+                <div class='flex md:flex-grow-2 justify-start space-x-3 text-sm md:text-base m-4 -mt-6'>
+                    <a href='/category/Tools'  class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Tools</button></a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<style>
+  body {
+    font-family: Poppins;
+    transition: 0.3s ease-in-out;
+  }
+
+  .wave {
+    animation-name: wave-animation; 
+    animation-duration: 2.5s;    
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;    
+    display: inline-block;
+  }
+  
+  @keyframes wave-animation {
+      0% { transform: rotate( 0.0deg) }
+     10% { transform: rotate(14.0deg) }  
+     20% { transform: rotate(-8.0deg) }
+     30% { transform: rotate(14.0deg) }
+     40% { transform: rotate(-4.0deg) }
+     50% { transform: rotate(10.0deg) }
+     60% { transform: rotate( 0.0deg) }  
+    100% { transform: rotate( 0.0deg) }
+  }
+
+  .updn {
+    animation-name: up-down;  
+    animation-duration: 5s;        
+    animation-iteration-count: infinite; 
+  }
+
+  @keyframes up-down {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.searchModal {
+  display: none;
+}
+
+.animate-reveal {
+    animation: reveal 0.3s ease-out;
+  }
+
+@keyframes reveal {
+    from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+    to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes shake {
+  from, to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+</style>
+
+<script>
+  const toggleButton = document.querySelector('.nav-btn');
+  const navbarContent = document.querySelector('.mob-nav');
+
+  toggleButton.addEventListener('click', () => {
+    if (navbarContent.classList.contains('hidden')) {
+      navbarContent.classList.replace('hidden', 'flex');
+    } else {
+      navbarContent.classList.replace('flex', 'hidden');
+    }
+  });
+
+  // Store DOM elements in variables
+  const searchBtn = document.querySelector(".searchBtn");
+  const searchBtn1 = document.querySelector(".searchBtn1");
+  const searchModal = document.querySelector(".searchModal");
+  const Modal = document.querySelector(".modal");
+  const searchCloseBtn = document.querySelector(".searchCloseBtn");
+  const searchSubmitBtn = document.querySelector(".searchSubmitBtn");
+  const searchInput = document.querySelector(".searchInput");
+
+  // Show Search Modal function
+  function showSearchModal() {
+    searchModal.style.display = "block";
+  }
+
+  // Hide Search Modal function
+  function hideSearchModal() {
+    searchModal.style.display = "none";
+  }
+
+  // Submit Search Form function
+  function submitSearchForm(event) {
+    event.preventDefault();
+    const searchQuery = searchInput.value.trim();
+    if (!searchQuery) {
+      searchInput.classList.add('shake');
+      setTimeout(function() {
+        searchInput.classList.remove('shake');
+      }, 500);
+      return;
+    }
+    window.open("/search/?q=" + encodeURIComponent(searchQuery));
+  }  
+
+  // Add event listeners
+  searchBtn.addEventListener("click", showSearchModal);
+  searchBtn1.addEventListener("click", showSearchModal);
+  searchCloseBtn.addEventListener("click", hideSearchModal);
+  searchSubmitBtn.addEventListener("click", submitSearchForm);
+</script>
+
+</html>

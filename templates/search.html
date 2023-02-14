@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{query}}{% endblock title %}
+
+{% block content %}
+{% comment %} {% for blog in blogs %}
+    {{blog.title}}
+    <img src="{{blog.thumbnail_img.url}}">
+{% endfor %} {% endcomment %}
+{% comment %} <div class="container mx-auto p-5 bg-gray-800 text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2 bg-gray-900 p-5">
+      <div class="flex justify-center">
+        <img class="rounded-lg max-w-80 md:max-w-sm h-auto" src="{% static 'images/password-generator.png' %}" alt="image">
+      </div>
+      <div class="flex justify-center">
+        <p>Text</p>
+      </div>
+    </div>
+  </div> {% endcomment %}
+  {% comment %} <div class='md:p-20 lg:p-40 bg-gray-800'>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-5">
+        <div class="bg-green-100 text-green-500 text-lg font-bold text-center p-14 rounded-lg">1</div>
+        <div class="bg-green-100 text-green-500 text-lg font-bold text-center p-14 rounded-lg">2</div>
+    </div>
+</div> {% endcomment %}
+
+<div class='bg-gray-800 text-white p-5 md:py-8 md:px-20 lg:px-40 xl:px-60'>
+    <p style="font-family: Poppins-Bold" class='text-4xl font-extrabold py-5 text-center md:text-start'>Results for {{query}}</p>
+    {% if message %}
+    <div class='p-5 grid place-items-center mt-10 mb-40 text-center'>
+      {% comment %} <img class='h-auto w-96' src="{% static 'images/404-error.svg' %}" alt="image"> {% endcomment %}
+      <p style="font-family: Poppins-Bold;" class='my-4 text-5xl font-extrabold md:text-8xl'>404</p>
+      <p class=''>{{message}}</p>
+  </div>
+  <div class="text-xl p-5 grid grid-cols-1 place-items-center items-center md:grid-cols-3 -mt-44 gap-x-4">
+      <div onclick="location.href='/';" style="box-shadow:0 5px 30px 0 rgba(0,0,0,.05);" class="hover:scale-105 hover:transform transition duration-300 cursor-pointer bg-gray-900 rounded-lg h-40 w-full my-4 text-center p-5 grid place-items-center">
+          <div>
+          <p class='text-4xl my-2'><i class="bi bi-house-door text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-blue-500"></i></p>
+          <p class='text-base'>Return Home</p>
+          </div>
+      </div>
+      <div onclick="location.href='/categories';" style="box-shadow:0 5px 30px 0 rgba(0,0,0,.05);" class="hover:scale-105 hover:transform transition duration-300 cursor-pointer bg-gray-900 rounded-lg h-40 w-full my-4 text-center p-5 grid place-items-center">
+          <div>
+          <p class='text-4xl my-2'><i class="bi bi-tags text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-blue-500"></i></p>
+          <p class='text-base'>Browse Categories</p>
+          </div>
+      </div>
+      <div onclick="location.href='/blog';" style="box-shadow:0 5px 30px 0 rgba(0,0,0,.05);" class="hover:scale-105 hover:transform transition duration-300 cursor-pointer bg-gray-900 rounded-lg h-40 w-full my-4 text-center p-5 grid place-items-center">
+          <div>
+          <p class='text-4xl my-2'><i class="bi bi-book text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-blue-500"></i></p>
+          <p class='text-base'>Visit Blog</p>
+          </div>
+      </div>
+  </div>
+    {% endif %}
+    {% for blog in results %}
+        <div style="box-shadow:0 5px 30px 0 rgba(0,0,0,.05);" class='flex flex-col md:flex-row gap-4 md:gap-x-8 bg-gray-900 p-5 mb-4 rounded-lg'>
+            <img class="post-img-url rounded-lg object-cover" width='350px' height='180px' src="{{blog.thumbnail_url}}" alt="image">
+            <div>
+                <a class='text-blue-100 hover:text-blue-300 transition duration-300' href='/blogpost/{{blog.slug}}'><span class='text-xl font-extrabold'>{{blog.title|slice:80}}</span></a><br>
+                <p class='my-3'>{{blog.meta|slice:180|safe}}</p>
+                <p class='mt-2 mb-4 text-gray-400'>by  <i class="bi bi-person"></i>  <a href='/about' class='group transition-all duration-500 ease-out'><span class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out group-hover:text-cyan-200'>Ashish</span></a> <i class="bi bi-dot"></i> <span><i class="bi bi-calendar4-event"></i> {{blog.time}}</span> <i class="bi bi-dot"></i><i class="bi bi-tag"></i> <a href='/category/{{blog.category}}' class='group transition-all duration-500 ease-out'><span class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out group-hover:text-cyan-200'>{{blog.category}}</span></a></p>
+                {% comment %} <a class='text-sm bg-gray-700 py-1 px-3 rounded-full' href='/category/{{blog.category}}'><i class="bi bi-tag"></i> {{blog.category}}</a><br><br> {% endcomment %}
+                <a href='/blogpost/{{blog.slug}}'><button class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3'>Read more <i class="bi bi-arrow-right font-extrabold"></i></button></a>
+            </div>
+        </div>
+    {% endfor %}
+    {% comment %} {% if results.has_other_pages %}
+    <div class="pagination flex py-4 gap-x-20 md:gap-x-60">
+        {% if results.has_previous %}
+        <div class=''>
+            <a class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3' href="?q={{ query }}&page={{ results.previous_page_number }}"><i class="bi bi-arrow-left font-extrabold"></i>  Previous</a>
+        </div>
+        {% endif %} {% endcomment %}
+
+        {% comment %} {% for page in results.paginator.page_range %}
+            {% if page == results.number %}
+                <span class="current-page">{{ page }}</span>
+            {% else %}
+                <a href="?q={{ query }}&page={{ page }}">{{ page }}</a>
+            {% endif %}
+        {% endfor %} {% endcomment %}
+
+        {% comment %} {% if results.has_next %}
+        <div class=''>
+            <a class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3' href="?q={{ query }}&page={{ results.next_page_number }}">Next <i class="bi bi-arrow-right font-extrabold"></i></a>
+        </div>
+        {% endif %}
+    </div>
+{% endif %} {% endcomment %}
+<div class="pagination py-8">
+    <span class="page-links">
+      {% if results.has_previous %}
+      <div class='float-left'>
+        <a class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3' href="?q={{ query }}&page={{ results.previous_page_number }}"><i class="bi bi-arrow-left font-extrabold"></i> Previous</a>
+      </div>
+      {% endif %}
+  
+      {% comment %} <span class="page-current">
+          Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}
+      </span> {% endcomment %}
+  
+      {% if results.has_next %}
+      <div class='float-right'>
+        <a class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3' href="?q={{ query }}&page={{ results.next_page_number }}">Next <i class="bi bi-arrow-right font-extrabold"></i></a>
+      </div>
+      {% endif %}
+    </span>
+  </div>
+  </div>
+{% endblock %}
