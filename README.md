@@ -12,7 +12,7 @@
 ## Introduction
 **"Django Tailwind Blog"** is a developer blog and portfolio website built using **Django** and **Tailwind CSS**. It includes several pages such as Home, About, Contact, Blog, Projects, Categories, and custom 404 pages. The project features a clean and modern design that is fully responsive and optimized for performance. It includes a powerful admin interface for managing the content, and is easy to customize and deploy to a production environment.
 
-![127 0 0 1_8000_ (1)](https://user-images.githubusercontent.com/106135144/218676659-e3503ae4-8d50-4c0c-87a2-14803b9eb55a.png)
+![django-tailwind-blog-for-developers](https://user-images.githubusercontent.com/106135144/227858936-d4cbcb44-9ff4-4729-b0f0-6ede931b99e0.png)
 
 ## Table of Content
   * [Introduction](#introduction)
