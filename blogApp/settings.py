@@ -89,12 +89,12 @@ WSGI_APPLICATION = 'blogApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -106,6 +106,19 @@ DATABASES = {
 #         'PORT': '6440',
 #     }
 # }
+
+# To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
+
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'neondb',
+    'USER': 'manhtct.dev',
+    'PASSWORD': '5TbNsu0DOwgY',
+    'HOST': 'ep-bold-darkness-45924881.ap-southeast-1.aws.neon.tech',
+    'PORT': '5432',
+  }
+}
 
 
 # Password validation
